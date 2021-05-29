@@ -1,6 +1,8 @@
 import express from "express";
 import path from "path";
 import logger from "morgan";
+import engines from "consolidate";
+
 import indexRouter from "./routes/index.js";
 
 const __dirname = path.resolve();
@@ -17,6 +19,13 @@ app.set("port", process.env.PORT || 3000);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+
+// view 경로 설정
+app.set("views", __dirname + "/src/views");
+
+// 화면 engine을 html로 설정
+app.engine("html", engines.mustache);
+app.set("view engine", "html");
 
 app.use("/", indexRouter);
 
