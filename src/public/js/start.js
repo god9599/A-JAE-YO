@@ -1,5 +1,6 @@
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
+const questionCount = 10; //임의의 숫자
 
 let begin = () => {
   main.style.WebkitAnimation = "fadeOut 1s";
@@ -22,6 +23,8 @@ let nextQuestion = (questionId) => {
   for (let i in qnaList[questionId].example) {
     addExample(qnaList[questionId].example[i].answer, questionId);
   }
+  let status = document.querySelector(".statusBar");
+  status.style.width = (100 / questionCount) * (questionId + 1) + "%";
 };
 
 let addExample = (answerInfo, questionId) => {
