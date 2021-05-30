@@ -1,0 +1,26 @@
+.questionBox {
+  background-color: whitesmoke;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 30px;
+  width: 80%;
+}
+
+#qna {
+  display: none;
+}
+
+.answerList:hover,
+.answerList:focus {
+  background-color: slategrey;
+  color: whitesmoke;
+}
+
+.answerList {
+  background-color: whitesmoke;
+  border-radius: 20px;
+  display: block;
+  width: 100%;
+  border: 0px;
+  font-size: 20px;
+}
