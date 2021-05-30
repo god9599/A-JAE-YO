@@ -46,7 +46,7 @@ let addExample = (answerInfo, questionId) => {
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true;
         buttons[i].style.WebkitAnimation = "fadeOut 0.5s";
-        button[i].style.animation = "fadeOut 0.5s";
+        buttons[i].style.animation = "fadeOut 0.5s";
       }
       setTimeout(() => {
         for (let i = 0; i < buttons.length; i++) {
