@@ -19,7 +19,7 @@ let begin = () => {
 
 let nextQuestion = (questionId) => {
   let question = document.querySelector(".questionBox");
-  question.innerHTML = qnaList[questionId].question;
+  question.innerHTML = '<img src = " ' + qnaList[questionId].question + ' ">';
   for (let i in qnaList[questionId].example) {
     addExample(qnaList[questionId].example[i].answer, questionId);
   }
