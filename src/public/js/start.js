@@ -1,6 +1,6 @@
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
-const questionCount = 10; //임의의 숫자
+const questionCount = qnaList.length;
 
 let begin = () => {
   main.style.WebkitAnimation = "fadeOut 1s";
