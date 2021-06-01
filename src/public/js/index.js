@@ -3,6 +3,9 @@ const qna = document.querySelector("#qna");
 const result = document.querySelector("#result");
 const questionCount = qnaList.length;
 
+const userSelect = []; // 사용자가 선택한 보기의 인덱스 저장소
+const problemAnswer = [0, 2, 0, 0, 1, 2, 1, 2, 0, 1]; // 문제 정답 배열
+
 let begin = () => {
   main.style.WebkitAnimation = "fadeOut 1s";
   main.style.animation = "fadeOut 1s";
@@ -39,13 +42,13 @@ let nextQuestion = (questionId) => {
   let question = document.querySelector(".questionBox");
   question.innerHTML = '<img src = " ' + qnaList[questionId].question + ' ">';
   for (let i in qnaList[questionId].example) {
-    addExample(qnaList[questionId].example[i].answer, questionId);
+    addExample(qnaList[questionId].example[i].answer, questionId, i);
   }
   let status = document.querySelector(".statusBar");
   status.style.width = (100 / questionCount) * (questionId + 1) + "%";
 };
 
-let addExample = (answerInfo, questionId) => {
+let addExample = (answerInfo, questionId, id) => {
   let example = document.querySelector(".answerBox");
   let answer = document.createElement("button");
   answer.classList.add("answerList");
@@ -67,6 +70,7 @@ let addExample = (answerInfo, questionId) => {
         buttons[i].style.animation = "fadeOut 0.5s";
       }
       setTimeout(() => {
+        userSelect[questionId] = id; // 몇 번째 질문에서 몇 번쨰 답을 선택했는 지 배열에 저장
         for (let i = 0; i < buttons.length; i++) {
           buttons[i].style.display = "none";
         }
