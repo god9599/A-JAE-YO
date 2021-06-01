@@ -32,7 +32,6 @@ const resultView = () => {
       result.style.display = "block";
     }, 450);
   });
-  calResult(userSelect);
 };
 
 const nextQuestion = (questionId) => {
@@ -90,6 +89,5 @@ const calResult = (userSelect) => {
       correctCnt += 1;
     }
   }
-  console.log(correctCnt);
   return correctCnt;
 };
