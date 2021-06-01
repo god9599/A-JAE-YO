@@ -6,7 +6,7 @@ const questionCount = qnaList.length;
 const userSelect = []; // 사용자가 선택한 보기의 인덱스 저장소
 const problemAnswer = [0, 2, 0, 0, 1, 2, 1, 2, 0, 1]; // 문제 정답 배열
 
-let begin = () => {
+const begin = () => {
   main.style.WebkitAnimation = "fadeOut 1s";
   main.style.animation = "fadeOut 1s";
   setTimeout(() => {
@@ -21,7 +21,7 @@ let begin = () => {
   }, 450);
 };
 
-let resultView = () => {
+const resultView = () => {
   qna.style.WebkitAnimation = "fadeOut 1s";
   qna.style.animation = "fadeOut 1s";
   setTimeout(() => {
@@ -32,9 +32,10 @@ let resultView = () => {
       result.style.display = "block";
     }, 450);
   });
+  calResult(userSelect);
 };
 
-let nextQuestion = (questionId) => {
+const nextQuestion = (questionId) => {
   if (questionId === questionCount) {
     resultView();
     return;
@@ -48,7 +49,7 @@ let nextQuestion = (questionId) => {
   status.style.width = (100 / questionCount) * (questionId + 1) + "%";
 };
 
-let addExample = (answerInfo, questionId, id) => {
+const addExample = (answerInfo, questionId, id) => {
   let example = document.querySelector(".answerBox");
   let answer = document.createElement("button");
   answer.classList.add("answerList");
