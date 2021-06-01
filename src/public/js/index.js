@@ -1,5 +1,6 @@
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
+const result = document.querySelector("#result");
 const questionCount = qnaList.length;
 
 let begin = () => {
@@ -17,7 +18,24 @@ let begin = () => {
   }, 450);
 };
 
+let resultView = () => {
+  qna.style.WebkitAnimation = "fadeOut 1s";
+  qna.style.animation = "fadeOut 1s";
+  setTimeout(() => {
+    result.style.WebkitAnimation = "fadeIn 1s";
+    result.style.animation = "fadeIn 1s";
+    setTimeout(() => {
+      qna.style.display = "none";
+      result.style.display = "block";
+    }, 450);
+  });
+};
+
 let nextQuestion = (questionId) => {
+  if (questionId === questionCount) {
+    resultView();
+    return;
+  }
   let question = document.querySelector(".questionBox");
   question.innerHTML = '<img src = " ' + qnaList[questionId].question + ' ">';
   for (let i in qnaList[questionId].example) {
