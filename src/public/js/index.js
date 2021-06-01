@@ -81,3 +81,15 @@ const addExample = (answerInfo, questionId, id) => {
     false
   );
 };
+
+// 정답과 사용자가 입력한 답안을 비교
+const calResult = (userSelect) => {
+  let correctCnt = 0;
+  for (let i = 0; i < userSelect.length; i++) {
+    if (userSelect[i] == problemAnswer[i]) {
+      correctCnt += 1;
+    }
+  }
+  console.log(correctCnt);
+  return correctCnt;
+};
