@@ -32,6 +32,7 @@ const resultView = () => {
       result.style.display = "block";
     }, 450);
   });
+  setResult();
 };
 
 const nextQuestion = (questionId) => {
@@ -90,4 +91,29 @@ const calResult = (userSelect) => {
     }
   }
   return correctCnt;
+};
+
+const setResult = () => {
+  const cnt = calResult(userSelect);
+  const imgDiv = document.querySelector("#resultImg");
+  const resultDesc = document.querySelector(".resultDesc");
+  let resultImg = document.createElement("img");
+  let imgNum;
+  if (cnt == 10 || cnt == 9) {
+    imgNum = 0;
+  } else if (cnt == 7 || cnt == 6 || cnt == 8) {
+    imgNum = 1;
+  } else if (cnt == 4 || cnt == 3 || cnt == 5) {
+    imgNum = 2;
+  } else if (cnt == 2 || cnt == 1 || cnt == 0) {
+    imgNum = 3;
+  }
+
+  let imgUrl = infoList[imgNum].result;
+  resultImg.src = imgUrl;
+  resultImg.alt = imgNum;
+  resultImg.classList.add("img-fluid");
+  imgDiv.appendChild(resultImg);
+
+  resultDesc.innerHTML = infoList[imgNum].desc;
 };
