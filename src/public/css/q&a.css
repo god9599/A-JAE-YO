@@ -1,5 +1,5 @@
 .questionBox {
-  background-color: whitesmoke;
+  background-color: white;
   text-align: center;
   border-radius: 20px;
   font-size: 30px;
@@ -13,11 +13,11 @@
 .answerList:hover,
 .answerList:focus {
   background-color: slategrey;
-  color: whitesmoke;
+  color: white;
 }
 
 .answerList {
-  background-color: whitesmoke;
+  background-color: white;
   border-radius: 20px;
   display: block;
   width: 100%;
